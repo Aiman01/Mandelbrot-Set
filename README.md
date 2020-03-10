@@ -1,5 +1,6 @@
 "#Mandelbrot set"
 *Controls:
+
 	#Movement controls
 	1)W: Move Up
 	2)S: Move Down
