@@ -1,0 +1,33 @@
+#version 330 core
+
+uniform int WIDTH;
+uniform int HEIGHT;
+uniform sampler1D tex;
+
+out vec4 Color;
+
+float map(float value, float min1, float max1, float min2, float max2) {
+  return min2 + (value - min1) * (max2 - min2) / (max1 - min1);
+}
+
+void main() {
+    vec2 z, c;
+    int iter=100;
+
+    c.x = WIDTH/2;// map(gl_FragCoord.x, 0, WIDTH, -2.5, 2.5);
+    c.y = HEIGHT/2;//map(gl_FragCoord.y, 0, HEIGHT, -2.5, 2.5);
+
+    int i;
+    z = c;
+    for(i=0; i<iter; i++) {
+        float x = (z.x * z.x - z.y * z.y) + c.x;
+        float y = (z.y * z.x + z.x * z.y) + c.y;
+
+        if((x * x + y * y) > 4.0) break;
+        z.x = x;
+        z.y = y;
+    }
+
+    Color=vec4((i==iter?0.f:float(i))/100.f, 0.f, .0f, 1.f);
+}
+	
