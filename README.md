@@ -1,4 +1,5 @@
 "#Mandelbrot set"
+
 *Controls:
 
 	#Movement controls
