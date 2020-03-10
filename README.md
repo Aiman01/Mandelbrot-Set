@@ -1,6 +1,6 @@
-"#Mandelbrot set"
+# Mandelbrot set
 
-*Controls:
+# Controls:
 
 	#Movement controls
 	1)W: Move Up
